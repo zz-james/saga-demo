@@ -37,21 +37,25 @@ const actions = Object.keys(actionsSet).reduce((p1, namespace) => {
 
 const store = getStore();
 
- // export interface
- export default {
-   getState: store.getState, // borrow from redux
- 
-   actions: {
-     todos: {
-       addTodo,
-       loadTodos,
-       removeTodo
-     }
-   },
- 
-   subscribe: store.subscribe, // borrow from redux
- 
-   constants: {
-     TODOS_STATUSES
-   }
- };
+const constants = {
+  SAVE_ANSWER, 
+  FINISH_EXAM
+};
+
+const subscribe = store.subscribe;
+
+const getState = store.getState;
+
+export default {
+	getState,
+	actions,
+	constants,
+	subscribe
+};
+
+export {
+	getState,
+	actions,
+	constants,
+	subscribe
+};
