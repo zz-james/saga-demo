@@ -1,17 +1,5 @@
-
-
-
-
-
-
-
-
-
-
-
-
 // import the state project
-import { getState, actions, subscribe } from 'state';
+import { getState, actions, subscribe } from './redux/index.js';
 
 // import view
 //import { render } from 'my-entire-view';
@@ -19,10 +7,10 @@ import { getState, actions, subscribe } from 'state';
 // import selectors
 // import { selectors } from 'selectors';
 
+console.log(actions);
 
-
-// store.dispatch(saveAnswer());
-// store.dispatch(finishExam());
+actions.question.saveAnswer();
+actions.exam.finishExam();
 
 
 

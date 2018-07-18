@@ -1,5 +1,6 @@
  // import redux store
- import getStore from './getStore';
+ import {getStore} from './getStore.js';
+
 
 //  // import actions
 import { saveAnswer, finishExam } from './actions'
@@ -19,18 +20,15 @@ const actionsSet = {
 // this expression takes the above actionsSet object
 // and creates a new object which has the same structure
 // but 'wraps' the action creator with a function that also does dispatch
-const actions = Object.keys(actionsSet).reduce((p1, namespace) => {
-	p1[namespace] = Object.keys(actionsSet[namespace]).reduce((p2, action) => {
-
+const actions = Object.keys(actionsSet).reduce((p1, domain) => {
+	p1[domain] = Object.keys(actionsSet[domain]).reduce((p2, action) => {
 		p2[action] = function() {
-			const action = actionsSet[namespace][action].apply(null, arguments);  // calls action creator
-			store.dispatch(action);  // dispatches action.
-			return action;
+			const actionToDispatch = actionsSet[domain][action].apply(null, arguments);
+			store.dispatch(actionToDispatch);
+			return actionToDispatch;
 		};
-
 		return p2;
 	}, {});
-
 	return p1;
 }, {});
 

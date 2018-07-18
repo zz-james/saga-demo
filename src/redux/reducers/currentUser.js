@@ -1,4 +1,4 @@
-import { createReducer } from '../utilities';
+import { createReducer } from '../../utilities';
 import { fromJS} from 'immutable'
 import {
     SET_CURRENT_USER
