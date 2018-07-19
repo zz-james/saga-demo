@@ -1,5 +1,5 @@
 import { name } from './identity';
-import { createSignalAction, createDeltaActionType, makeActionCreator } from '../../utilities'
+import { createSignalAction, createDeltaActionType, createActionCreator } from '../../utilities'
 
 // SIGNALS
 // export const init = createSignalAction(name, 'INIT');
@@ -7,4 +7,4 @@ import { createSignalAction, createDeltaActionType, makeActionCreator } from '..
 
 // DELTAS
 export const MERGE_FILTERS = createDeltaActionType(name, 'MERGE_FILTERS');
-export const mergeFilters = makeActionCreator(MERGE_FILTERS);
+export const mergeFilters = createActionCreator(MERGE_FILTERS);

@@ -1,4 +1,4 @@
-export const makeActionCreator = (type, ...argNames) => {
+export const createActionCreator = (type, ...argNames) => {
     return function(...args) {
         let action = { type };
         argNames.forEach((arg, index) => {

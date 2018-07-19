@@ -9,7 +9,7 @@ import { getState, actions, subscribe } from './redux';
 
 actions.question.saveAnswer();
 actions.exam.finishExam();
-
+actions.filter.mergeFilters();
 // // get dom element to render ui in
 // const domElement = document.getElementById('app');
 

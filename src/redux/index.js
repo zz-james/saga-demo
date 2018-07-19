@@ -15,7 +15,7 @@ const actionsSet = {
 	exam: {
 		finishExam
 	},
-	filters: {
+	filter: {
 		mergeFilters
 	}
 };
@@ -37,9 +37,6 @@ const actions = Object.keys(actionsSet).reduce((p1, domain) => {
 	}, {});
 	return p1;
 }, {});
-
-console.log(actions);
-debugger;
 
 
 const store = getStore();
