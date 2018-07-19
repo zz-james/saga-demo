@@ -3,9 +3,9 @@
 
 
 // import actions and constants
-import { saveAnswer, SAVE_ANSWER } from './question/actions'
-import { finishExam, FINISH_EXAM } from './exam/actions'
-import { init, apply_filter, mergeFilters } from './filter/actions'
+import { saveAnswer, SAVE_ANSWER } from './question/actions.js'
+import { finishExam, FINISH_EXAM } from './exam/actions.js'
+import { init, apply_filter, mergeFilters } from './filter/actions.js'
 
 
 const actionsSet = {
@@ -34,6 +34,9 @@ const actions = Object.keys(actionsSet).reduce((p1, domain) => {
 	}, {});
 	return p1;
 }, {});
+
+console.log(actions);
+debugger;
 
 
 const store = getStore();

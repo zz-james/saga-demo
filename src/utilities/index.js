@@ -1,5 +1,5 @@
 export { makeActionCreator } from './makeActionCreator'
 export { createReducer } from './createReducer'
-export { createDeltaAction } from './createDeltaAction'
+export { createDeltaActionType } from './createDeltaActionType'
 export { createSignalAction } from './createSignalAction'
 export { createActionCreator } from './createActionCreator'
