@@ -1,9 +1,8 @@
-// import { createReducer } from '../utilities';
-// import { fromJS} from 'immutable'
+import { createReducer } from '../utilities';
+import * as deltas from './deltas';
 
-
-// export const answer = createReducer(null, {
-//     [SAVE_ANSWER](state,{}) {
-//         return fromJS(state);
-//     }
-// });
+export const question = createReducer(null, {
+  [deltas.UPDATE_ANSWER](state,{data}) {
+    return data;
+  }
+});

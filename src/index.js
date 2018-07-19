@@ -7,10 +7,12 @@ import { getState, signals, subscribe } from './redux';
 // import selectors
 // import { selectors } from 'selectors';
 
-// actions.question.saveAnswer();
-// actions.exam.finishExam();
 
-signals.filter.APPLY_FILTER('request');
+
+signals.filter.APPLY_FILTER();
+signals.question.SAVE_ANSWER();
+signals.exam.FINISH_EXAM('end this now');
+
 // // get dom element to render ui in
 // const domElement = document.getElementById('app');
 
