@@ -3,20 +3,21 @@
 
 
 // import actions and constants
-import { saveAnswer, SAVE_ANSWER } from './question/actions.js'
-import { finishExam, FINISH_EXAM } from './exam/actions.js'
-import { init, apply_filter, mergeFilters } from './filter/actions.js'
+import { saveAnswer, SAVE_ANSWER } from './question/signals.js'
+import { finishExam, FINISH_EXAM } from './exam/signals.js'
+// NOTE: COMMENTED OUT BECAUSE THEY ARE NOT PROPER SIGNAL ACTIONS YET.
+import { APPLY_FILTER } from './filter/signals.js'
 
 
-const actionsSet = {
-	question: {
-		saveAnswer
-	},
-	exam: {
-		finishExam
-	},
+const signalSet = {
+	// question: {
+	// 	saveAnswer
+	// },
+	// exam: {
+	// 	finishExam
+	// },
 	filter: {
-		mergeFilters
+		APPLY_FILTER
 	}
 };
 
@@ -26,12 +27,12 @@ const actionsSet = {
 // this expression takes the above actionsSet object
 // and creates a new object which has the same structure
 // but 'wraps' the action creator with a function that also does dispatch
-const actions = Object.keys(actionsSet).reduce((p1, domain) => {
-	p1[domain] = Object.keys(actionsSet[domain]).reduce((p2, action) => {
-		p2[action] = function() {
-			const actionToDispatch = actionsSet[domain][action].apply(null, arguments);
-			store.dispatch(actionToDispatch);
-			return actionToDispatch;
+const signals = Object.keys(signalSet).reduce((p1, domain) => {
+	p1[domain] = Object.keys(signalSet[domain]).reduce((p2, action) => {
+		p2[action] = function(task) {
+			const signalToDispatch = signalSet[domain][action][task].apply(null, arguments);
+			store.dispatch(signalToDispatch);
+			return signalToDispatch;
 		};
 		return p2;
 	}, {});
@@ -52,14 +53,14 @@ const getState = store.getState;
 
 export default {
 	getState,
-	actions,
+	signals,
 	constants,
 	subscribe
 };
 
 export {
 	getState,
-	actions,
+	signals,
 	constants,
 	subscribe
 };

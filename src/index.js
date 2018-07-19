@@ -1,5 +1,5 @@
 // import the state project
-import { getState, actions, subscribe } from './redux';
+import { getState, signals, subscribe } from './redux';
 
 // import view
 //import { render } from 'my-entire-view';
@@ -7,9 +7,10 @@ import { getState, actions, subscribe } from './redux';
 // import selectors
 // import { selectors } from 'selectors';
 
-actions.question.saveAnswer();
-actions.exam.finishExam();
-actions.filter.mergeFilters();
+// actions.question.saveAnswer();
+// actions.exam.finishExam();
+
+signals.filter.APPLY_FILTER('request');
 // // get dom element to render ui in
 // const domElement = document.getElementById('app');
 

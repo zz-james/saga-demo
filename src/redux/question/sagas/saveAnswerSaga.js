@@ -4,7 +4,7 @@ import { saveAnswerPendingCounter } from '../channel/createCounter'
 
 import {
   SAVE_ANSWER
-} from '../actions'
+} from '../signals'
 
 // wait for saveAnswer action
 

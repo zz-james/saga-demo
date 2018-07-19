@@ -2,7 +2,7 @@ import { createReducer } from '../../utilities';
 import { fromJS} from 'immutable'
 import {
     SAVE_ANSWER
-} from './actions'
+} from './signals'
 
 export const answer = createReducer(null, {
     [SAVE_ANSWER](state,{}) {

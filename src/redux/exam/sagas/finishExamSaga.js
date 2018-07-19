@@ -4,7 +4,7 @@ import { saveAnswerPendingCounter } from '../../question/channel/createCounter'
 
 import {
   FINISH_EXAM
-} from '../actions'
+} from '../signals'
 
 // wait for finish exam action
 

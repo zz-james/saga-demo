@@ -1,5 +1,5 @@
 import { name } from './identity';
-import * as actions from './actions';
+import * as actions from './deltas';
 
 const reducer = (state = initialState, action) => {
   const type = action.type;
