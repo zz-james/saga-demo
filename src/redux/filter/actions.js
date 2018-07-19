@@ -1,11 +1,10 @@
 import { name } from './identity';
-import { createSignalAction, createDeltaActionType , createActionCreator } from '../../utilities'
+import { createSignalAction, createDeltaActionType, makeActionCreator } from '../../utilities'
 
 // SIGNALS
-export const init = createSignalAction(name, 'INIT');
-export const apply_filter = createSignalAction(name, 'APPLY_FILTER');
+// export const init = createSignalAction(name, 'INIT');
+// export const apply_filter = createSignalAction(name, 'APPLY_FILTER');
 
 // DELTAS
-debugger
 export const MERGE_FILTERS = createDeltaActionType(name, 'MERGE_FILTERS');
-export const mergeFilters = createActionCreator(MERGE_FILTERS);
+export const mergeFilters = makeActionCreator(MERGE_FILTERS);

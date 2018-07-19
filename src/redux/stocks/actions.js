@@ -1,5 +1,5 @@
 import { name } from './identity';
-import { createSignalAction, createDeltaAction, createActionCreator } from '../utilities';
+import { createSignalAction, createDeltaAction, makeActionCreator } from '../utilities';
 
 // SIGNALS
 export const INIT = createSignalAction(name, 'INIT');
@@ -7,7 +7,7 @@ export const FILTER_STOCKS = createSignalAction(name, 'FILTER_STOCKS');
 
 // DELTAS
 export const MERGE_STOCKS = createDeltaAction(name, 'MERGE_STOCKS');
-export const mergeStocks = createActionCreator(MERGE_STOCKS);
+export const mergeStocks = makeActionCreator(MERGE_STOCKS);
 
 /* 
 INIT == {
