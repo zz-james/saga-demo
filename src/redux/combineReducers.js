@@ -1,4 +1,11 @@
-import  * as reducers from './reducers'
+// import reducers
+import {answer} from './question/reducer'
+import {exam} from './exam/reducer'
+
+const reducers = {
+    answer,
+};
+
 import { fromJS } from 'immutable'
 
 export const combineReducers = (config) =>{

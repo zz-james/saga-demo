@@ -2,11 +2,11 @@
  import {getStore} from './getStore.js';
 
 
-//  // import actions
-import { saveAnswer, finishExam } from './actions'
- 
-//  // import constants
-import {SAVE_ANSWER, FINISH_EXAM} from './actions';
+// import actions and constants
+import { saveAnswer, SAVE_ANSWER } from './question/actions'
+import { finishExam, FINISH_EXAM } from './exam/actions'
+import { init, apply_filter, mergeFilters } from './filter/actions'
+
 
 const actionsSet = {
 	question: {
@@ -14,6 +14,9 @@ const actionsSet = {
 	},
 	exam: {
 		finishExam
+	},
+	filters: {
+		mergeFilters
 	}
 };
 

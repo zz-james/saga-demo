@@ -1,6 +1,6 @@
 import { delay } from 'redux-saga';
 import { take } from 'redux-saga/effects'
-import { saveAnswerPendingCounter } from './channel/createCounter'
+import { saveAnswerPendingCounter } from '../channel/createCounter'
 
 import {
   SAVE_ANSWER
