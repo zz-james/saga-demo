@@ -1,25 +1,12 @@
 import { delay } from 'redux-saga';
-import { take } from 'redux-saga/effects'
+import { take } from 'redux-saga/effects';
 import { saveAnswerPendingCounter } from '../../question/channel/createCounter'
+import * as signals from '../signals';
+// import * as deltas from '../deltas';
+import { createWatcher } from '../../utilities';
 
-import {
-  FINISH_EXAM
-} from '../signals'
-
-// wait for finish exam action
-
-// check if counter is zero
-
-// if not
-  // delay 1000 and check again
-  // loop
-
-// if is empty
-  // yield to api promise
-
-export function* finishExamSaga() {
-  console.log("finish exam saga started");
-  const action = yield take(FINISH_EXAM);
+export function* finishExamSaga(action) {
+  // find out how to pass params.
   console.log('saveAnswerSage: got...', action);
   while(saveAnswerPendingCounter.pending) {
     console.log('waiting for the save answer api call to finish...')
@@ -27,3 +14,5 @@ export function* finishExamSaga() {
   }
   console.log('now I do the finish api call')
 }
+
+export const watchApplyFilter = createWatcher(signals.FINISH_EXAM.REQUEST, finishExamSaga);

@@ -1,26 +1,10 @@
-import { name } from './identity';
-import * as actions from './deltas';
+import { createReducer } from '../utilities';
+import * as deltas from './deltas';
 
-const reducer = (state = initialState, action) => {
-  const type = action.type;
-
-  switch (type) { 
-    case actions.MERGE_FILTERS:
-      return { 
-        ...state,
-        filters: action.data, 
-      }
-    default:
-      return state;
+export const filter = createReducer(
+  null, 
+  {
+  [deltas.ADD_TEXT](state,{data}) {
+    return data
   }
-}
-
-const selectors = {
-  getFilters: (state) => state[name].filters,
-}
-
-const initialState = {
-  filters: []
-};
-
-export { reducer, selectors }
+});

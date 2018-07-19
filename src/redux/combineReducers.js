@@ -1,9 +1,10 @@
 // import reducers
 import {answer} from './question/reducer'
-import {exam} from './exam/reducer'
+import {filter} from './filter/reducer'
+
 
 const reducers = {
-    answer,
+    filter
 };
 
 import { fromJS } from 'immutable'

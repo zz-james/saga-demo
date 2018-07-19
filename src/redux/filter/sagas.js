@@ -1,2 +1,2 @@
 // export sagas
-export { watchMergeFilter } from './sagas/mergeFilterSaga';
+export { watchApplyFilter } from './sagas/applyFilterSaga';

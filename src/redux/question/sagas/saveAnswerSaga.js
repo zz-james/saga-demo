@@ -1,29 +1,26 @@
 import { delay } from 'redux-saga';
-import { take } from 'redux-saga/effects'
+import { put } from 'redux-saga/effects'
 import { saveAnswerPendingCounter } from '../channel/createCounter'
 
-import {
-  SAVE_ANSWER
-} from '../signals'
+import * as signals from '../signals';
+import * as deltas from '../deltas';
+import { createWatcher } from '../../utilities';
+
 
 // wait for saveAnswer action
-
 // increment counter
-
 // yield to api promise (use dalay)
-
 // decrement counter
 
-export function* saveAnswerSaga() {
-  while(true) {
-    console.log('save answer saga begins!');
-    const action = yield take(SAVE_ANSWER);
-    console.log('saveAnswerSage: got...', action);
-    saveAnswerPendingCounter.pending++;
-    console.log('Are we waiting for a save answer to return..', !!saveAnswerPendingCounter.pending);
-    yield delay(10000); // this would be the api call
-    saveAnswerPendingCounter.pending--;
-    console.log('Are we waiting for a save answer to return..', !!saveAnswerPendingCounter.pending);
-  }
+export function* saveAnswerSaga(action) {
+  console.log('saveAnswerSage: got...', action);
+  saveAnswerPendingCounter.pending++;
+  console.log('Are we waiting for a save answer to return..', !!saveAnswerPendingCounter.pending);
+  yield delay(10000); // this would be the api call
+  saveAnswerPendingCounter.pending--;
+  yield put(deltas.updateAnswer('save this answer'));
+  console.log('Are we waiting for a save answer to return..', !!saveAnswerPendingCounter.pending);
 }
+
+export const watchApplyFilter = createWatcher(signals.SAVE_ANSWER, saveAnswerSaga);
 

@@ -1,5 +1,5 @@
 import { name } from './identity';
-import { createDeltaActionType, createActionCreator } from '../../utilities'
+import { createDeltaActionType, createActionCreator } from '../utilities'
 
-export const MERGE_FILTERS = createDeltaActionType(name, 'MERGE_FILTERS');
-export const mergeFilters = createActionCreator(MERGE_FILTERS);
+export const ADD_TEXT = createDeltaActionType(name, 'ADD_TEXT');
+export const addText = createActionCreator(ADD_TEXT);

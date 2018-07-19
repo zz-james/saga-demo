@@ -1,4 +1,4 @@
-import { createActionCreator } from '../../utilities'
+import { name } from './identity';
+import { createSignalAction, createActionCreator } from '../utilities'
 
-export const FINISH_EXAM = "FINISH_EXAM";
-export const finishExam = createActionCreator(FINISH_EXAM);
+export const FINISH_EXAM = createSignalAction(name, 'FINISH_EXAM');

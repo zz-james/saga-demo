@@ -1,11 +1,9 @@
-import { createReducer } from '../../utilities';
-import { fromJS} from 'immutable'
-import {
-    SAVE_ANSWER
-} from './signals'
+// import { createReducer } from '../utilities';
+// import { fromJS} from 'immutable'
 
-export const answer = createReducer(null, {
-    [SAVE_ANSWER](state,{}) {
-        return fromJS(state);
-    }
-});
+
+// export const answer = createReducer(null, {
+//     [SAVE_ANSWER](state,{}) {
+//         return fromJS(state);
+//     }
+// });

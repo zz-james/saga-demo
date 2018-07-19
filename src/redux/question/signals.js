@@ -1,4 +1,4 @@
-import { createActionCreator } from '../../utilities'
+import { name } from './identity';
+import { createSignalAction, createActionCreator } from '../utilities'
 
-export const SAVE_ANSWER = "SAVE_ANSWER";
-export const saveAnswer = createActionCreator(SAVE_ANSWER);
+export const SAVE_ANSWER = createSignalAction(name, 'SAVE_ANSWER');
