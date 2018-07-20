@@ -27,6 +27,7 @@ const signalSet = {
 // this expression takes the above signalSet object
 // and creates a new object which has the same structure
 // but 'wraps' the action creator with a function that also does dispatch
+// here we should test that we have a valid signal
 const signals = Object.keys(signalSet).reduce((p1, domain) => {
 	p1[domain] = Object.keys(signalSet[domain]).reduce((p2, action) => {
 
