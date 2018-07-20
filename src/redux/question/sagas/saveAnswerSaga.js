@@ -12,8 +12,8 @@ import { createWatcher } from '../../utilities';
 // yield to api promise (use dalay)
 // decrement counter
 
-export function* saveAnswerSaga(action) {
-  console.log('saveAnswerSage: got...', action);
+function* saveAnswerSaga(data) {
+  console.log('saveAnswerSaga: got...', data);
   saveAnswerPendingCounter.pending++;
   console.log('Are we waiting for a save answer to return..', !!saveAnswerPendingCounter.pending);
   yield delay(10000); // this would be the api call
@@ -22,5 +22,5 @@ export function* saveAnswerSaga(action) {
   console.log('Are we waiting for a save answer to return..', !!saveAnswerPendingCounter.pending);
 }
 
-export const watchApplyFilter = createWatcher(signals.SAVE_ANSWER, saveAnswerSaga);
+export const watchApplyFilter = createWatcher(signals.SAVE_ANSWER.REQUEST, saveAnswerSaga);
 

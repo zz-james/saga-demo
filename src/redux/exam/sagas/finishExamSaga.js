@@ -5,9 +5,8 @@ import * as signals from '../signals';
 // import * as deltas from '../deltas';
 import { createWatcher } from '../../utilities';
 
-export function* finishExamSaga(action) {
-  // find out how to pass params.
-  console.log('saveAnswerSage: got...', action);
+function* finishExamSaga(data) {
+  console.log('finishExamSaga: got...', data);
   while(saveAnswerPendingCounter.pending) {
     console.log('waiting for the save answer api call to finish...')
     yield delay(1000)
@@ -15,4 +14,4 @@ export function* finishExamSaga(action) {
   console.log('now I do the finish api call')
 }
 
-export const watchApplyFilter = createWatcher(signals.FINISH_EXAM.REQUEST, finishExamSaga);
+export const watchFinishExam = createWatcher(signals.FINISH_EXAM.REQUEST, finishExamSaga);

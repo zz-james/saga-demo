@@ -1,3 +1,4 @@
 // export sagas
-export {finishExamSaga} from './sagas/finishExamSaga';
+export {watchFinishExam} from './sagas/finishExamSaga';
+
 

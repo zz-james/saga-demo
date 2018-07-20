@@ -6,9 +6,9 @@ import { put } from 'redux-saga/effects';
 
 
 // triggered by UI component
-function* applyFilterSaga(filter) {
+function* applyFilterSaga(data) {
   try {
-    yield put(deltas.addText('this is a test'));
+    yield put(deltas.addText(data));
     yield put(signals.APPLY_FILTER.success());
   } catch (error) {
     yield put(signals.APPLY_FILTER.failure(error));

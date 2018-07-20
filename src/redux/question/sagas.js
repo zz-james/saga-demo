@@ -1,2 +1,2 @@
 // export sagas
-export { saveAnswerSaga } from './sagas/saveAnswerSaga';
+export { watchApplyFilter } from './sagas/saveAnswerSaga';

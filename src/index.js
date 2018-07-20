@@ -9,7 +9,7 @@ import { getState, signals, subscribe } from './redux';
 
 
 
-signals.filter.APPLY_FILTER();
+signals.filter.APPLY_FILTER('this is a test');
 signals.question.SAVE_ANSWER();
 signals.exam.FINISH_EXAM('end this now');
 
