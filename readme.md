@@ -1,26 +1,31 @@
-OK, so this is a pretty minimal example.
 
-only using: babel, webpack, immutable, redux and redux-saga from npm
+1. modularised the internals of the redux container by sub-state.
 
-there are 2 sagas
-  saveAnswerSaga
-  finishExamSaga
+each module consists of 
+  identity.js = a string constant which is the module name used in deltas/signals/reducers
+  signals.js = actions that are inputs to sagas
+  deltas.js = actions that are outputs of sagas and inputs to reducers
+  reducer.js
+  sagas.js
+  sagas folder = exports all the sagas in the sagas folder, these are then imported into index.js
+  index.js = an interface (see below)
 
-save answer saga listens for a SAVE_ANSWER action then increments a shared 'number of save answers pending' counter.
-then delay is used to simulate a connection to the API, after 10 seconds the promise resolves.
-then save answer saga decrements the 'number of save answers pending' counter.
+index.js exports (for consumption by React or whatever front-end lib):
+  all the signals
+  all the sagas
+  the reducer
 
-finish exam saga listens for a FINISH_EXAN action, if there is any save answers pending (indicated by 'number of save answers pending' counter > 0)
-then it yields to a delay of 1 second and then checks again.
-if save answer saga has decremented the counter back to zero then the saga proceeds to do whatever it needs to do to finish the exam.
+  as an object with keys
 
-so this doesn't completely work up to what we need, because really we should stop listening for any more 'SAVE_ANSWER' actions once we've got a 'FINISH_EXAM' action, and this can probably be done by breaking the sagas into smaller units and using the 'spawn' and 'cancel' effects 
-
-so would be good to:
-a) have more fine grained saga/process control
-b) error handling
-c) tests
-
-but it is a start.
+  {signals, sagas, reducer}
 
 
+signal and delta type actions are used to seperate events at the begining and end of saga based business logic 'pipes' 
+
+signal actions are objects consist of 3 sub actions.
+
+  - REQUEST = any signal triggered by the ui
+  - SUCCESS = an signal triggered on success of an api call 
+  - FAILURE = an signal triggered on fail of an api call
+
+deltas are very much like the regular actions we know and love

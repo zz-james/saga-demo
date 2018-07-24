@@ -1,8 +1,20 @@
-import { getStore } from './getStore'
-import { saveAnswer, finishExam } from './actions'
+// import the state project
+import { getState, signals, subscribe } from './redux';
 
-const store = getStore();
+// import view
+//import { render } from 'my-entire-view';
+
+// import selectors
+// import { selectors } from 'selectors';
 
 
-store.dispatch(saveAnswer());
-store.dispatch(finishExam());
+
+signals.filter.APPLY_FILTER('this is a test');
+signals.question.SAVE_ANSWER();
+signals.exam.FINISH_EXAM('end this now');
+
+// // get dom element to render ui in
+// const domElement = document.getElementById('app');
+
+// // render full app
+// render(selectors, domElement);
